@@ -25,7 +25,12 @@ describe "Model Node" do
     
     it "should provide a more readable representation of the object" do
       person = Person.create(:name => 'Morpheus', :human => true)
-      person.to_s.should == "#<Person:#{person.object_id} id=#{person.id} name='Morpheus' created_at='#{person.created_at}' human='true' updated_at='#{person.updated_at}' neo4j_uri='#{TEST_SERVER.node_url(person.id)}'>"
+      person.to_s.should == "#<Person:#{person.object_id} id=#{person.id} name='Morpheus' human='true' created_at='#{person.created_at}' updated_at='#{person.updated_at}' neo4j_uri='#{TEST_SERVER.node_url(person.id)}'>"
+    end
+    
+    it "should provide readable representation of a new object" do
+      person = Person.new(:name => 'Morpheus', :human => true)
+      person.to_s.should == "#<Person:#{person.object_id} id=nil name='Morpheus' human='true' neo4j_uri=nil>"
     end
     
   end

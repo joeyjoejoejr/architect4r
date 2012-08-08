@@ -22,10 +22,10 @@ namespace :server do
   desc "Install test server"
   task :install do
     puts "Installing Neo4j server (community edition)..."
-    %x[wget http://dist.neo4j.org/neo4j-community-1.5-unix.tar.gz]
-    %x[tar -xvzf neo4j-community-1.5-unix.tar.gz]
-    %x[mv neo4j-community-1.5 neo4j_server]
-    %x[rm neo4j-community-1.5-unix.tar.gz]
+    %x[wget http://dist.neo4j.org/neo4j-community-1.7-unix.tar.gz]
+    %x[tar -xvzf neo4j-community-1.7-unix.tar.gz]
+    %x[mv neo4j-community-1.7 neo4j_server]
+    %x[rm neo4j-community-1.7-unix.tar.gz]
     puts "Neo4j Installed in to neo4j_server directory."
     puts "Type 'rake server:start' to start it or 'rake server:stop' to stop"
   end

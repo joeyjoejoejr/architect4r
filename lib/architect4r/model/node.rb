@@ -55,7 +55,8 @@ module Architect4r
       #
       def to_s
         prop_data = @properties_data.collect { |key, value| "#{key}='#{value}'" }.join(' ')
-        "#<#{self.class.name}:#{object_id} id=#{id} #{prop_data} neo4j_uri='#{@raw_data['self']}'>"
+        raw_data = @raw_data ? "'#{@raw_data['self']}'": 'nil'
+        "#<#{self.class.name}:#{object_id||''} id=#{id||'nil'} #{prop_data} neo4j_uri=#{raw_data}>"
       end
       
       # Calculate hash manually in order to only include unique properties for comparison
